@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Britpick.me: Start</title>
+	<link href="img/favicon.ico" rel="shortcut icon" />
+	<!-- Bootstrap -->
+	<link href="bootstrap.css" type="text/css" rel="stylesheet" media="screen" />
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+  <script src="bootstrap.js"></script>
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+
+      /* Navbar logo left margin (JEB) */
+      .navbar .brand {
+        margin-left: 10px;
+      }
+
+      /* Custom container */
+      .container-narrow {
+        margin: 0 auto;
+        max-width: 700px;
+      }
+      .container-narrow > hr {
+        margin: 30px 0;
+      }
+
+      /* Main marketing message and sign up button */
+      .jumbotron {
+        margin: 20px 0;
+        text-align: center;
+      }
+      .jumbotron h1 {
+        font-size: 72px;
+        line-height: 1;
+      }
+      .hero-unit {
+        padding: 20px;
+      }
+    </style>
+  <!-- My JavaScript -->
+  <script type="text/javascript" src="britpick.js"></script>
+  <script type="text/javascript" src="load.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <a class="brand" href="">Britpick.me</a>
+          <ul class="nav">
+            <li class="divider-vertical"></li>
+            <li class="active" id="start"><a href="#" onClick="recreateIndex();">Start</a></li>
+            <li class="divider-vertical"></li>
+            <li id="check"><a href="#check" onClick="createBlankCheck(false);">Check</a></li>
+            <li class="divider-vertical"></li>
+            <li id="customize"><a href="#customize" onClick="createCustomize();">Customize</a></li>
+          </ul>
+          <div class="btn-group pull-right">
+                <a class="btn btn-info dropdown-toggle" data-toggle="dropdown" href="#">Sources
+                  <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a target="_blank" href="http://archiveofourown.org/works/259535">Brit-pick Hints for Sherlock Authors by red_adam</a>
+                  </li>
+                  <li><a target="_blank" href="http://needlesslydefiantwithtea.tumblr.com/post/37663342231/britpicking-master-post">Britpicking Master Post by needlesslydefiantwithtea</a></li>
+                </ul>
+      </div>
+      </div>
+    </div>
+  </div>
+	<div id="headline" class="container-narrow">
+    <div id="splash" class="jumbotron hero-unit">
+	    <h1>Britpick.me</h1>
+      <p></p>
+      <p class="lead">Quick, easy, and customizable Britpicking</p><p>for American (and other non-Brit) fic authors</p>
+    </div>
+    <div id="form">
+      <form id="target">
+        <legend>Paste your fic in the box:</legend>
+        <textarea id="fic" class="input-block-level" rows="6" placeholder="Your un-Britpick-ed text" autofocus required></textarea>
+        <br/>
+        <button type="submit" class="btn btn-primary btn-large">Britpick it!</button>
+      </form>
+    </div>
+    <div id="britpicked" class="container-narrow">
+      <div id="result"></div>
+    </div>
+  </div>
+</body>
+</html>
