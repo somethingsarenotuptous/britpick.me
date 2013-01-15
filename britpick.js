@@ -4,19 +4,6 @@ $(document).ready(function() {
 		britpick(text);
 		addPopoverData();
 		$('.britpicked').popover({html: true, trigger: "hover"});
-		// this might be a hack: delete all spans that are children of del
-		// to get rid of recursive replacement problem with 'trash can'
-		$('del span').remove();
-		// and another hack to merge the resultant del-within-a-del
-		$('del del').each(function() {
-			txt = $(this).text();
-			higher = $(this).parent();
-			$(this).remove();
-			tmp = higher.text();
-			tmp = txt + " " + tmp;
-			higher.text(tmp);
-		});
-		// end hacks
 		$('#fic').val('');
 		return false;
 	});
@@ -81,8 +68,24 @@ var getRegexp = function (base) {
 }
 
 var suggest = function (text, wrong, re, right, explained) {
-	return text.replace(re, "<del class='tbd'>" + wrong + "</del>" + " " + "<span class='text-error britpicked'>" 
-		+ right + "</span>");
+	if (text.search("<del class='tbd text-error'>" + wrong) != -1) {
+		if (text.search("<del class='tbd text-error'>" + wrong + "</del>") != -1)
+		// covers case where one Americanism can have multiple British equivs: e.g., 'pop' ('fizzy drink', 'dad, father')
+		{
+			return text.replace(re, wrong + "</del> <button class='btn btn-success britpicked'>" + right + "</button>");
+		}
+		else {
+		//covers case where one Americanism contains another but we don't want recursive replacement: 'trash can'
+			var newRe = new RegExp("\\b" + re + "(.*)\\b", "gi");
+			return text.replace(newRe, wrong + "$1</del> <button class='btn btn-success britpicked'>" + right + "</button>");
+		}
+		
+	}
+	else {
+		return text.replace(re, "<del class='tbd text-error'>" + wrong + "</del>" + " " + "<button class='btn " +
+			"btn-success britpicked'>" + right + "</button>");
+	}
+	
 }
 
 var createBlankCheck = function(form) {
@@ -131,7 +134,8 @@ var createCheck = function(submitted, noSuggestions) {
 	}
 	else {
 		$('#britpicked').prepend("<h1>Your Britpick-ed fic:</h1><p class='lead'>Hover over suggested changes " +
-		"(in <span class='text-error'>red</span>) to learn about why the change is recommended.</p>");
+			"(in <del class='tbd text-error'>red</del> <button class='btn btn-success'>green</button>) to learn " +
+			"about why the change is recommended.</p>");
 		$('#result').html(submitted);
 	}
 }
