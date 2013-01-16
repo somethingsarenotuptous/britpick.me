@@ -95,7 +95,7 @@ var createBlankCheck = function(form) {
 	$('#check').addClass('active');
 	$('#altLead').remove();
 	if (!form) {
-		$('#headline').prepend("<p class='lead' id='altLead'>You need to submit your text in the <a href='#'" + 
+		$('#main').prepend("<p class='lead' id='altLead'>You need to submit your text in the <a href='#'" + 
 			" onClick='recreateIndex();'>form</a> in order to Britpick it!</p>");
 		$('#britpicked').html("<div id='britpicked' class='container-narrow'><div id='result'></div></div>");
 	}
@@ -108,15 +108,15 @@ var createCustomize = function () {
 	$('li').removeClass('active');
 	$('#customize').addClass('active');
 	$('#altLead').remove();
-	$('#headline').prepend("<div class='jumbotron hero-unit' id='altLead'><h2>Coming soon!</h2></p>");
+	$('#main').prepend("<div class='jumbotron hero-unit' id='altLead'><h2>Coming soon!</h2></p>");
 }
 
 var recreateIndex = function() {
 	location.assign("index.html");
-	$('#headline').append("<div id='splash' class='jumbotron hero-unit'><h1>Britpick.me</h1><p></p>" + 
+	$('#main').append("<div id='splash' class='jumbotron hero-unit'><h1>Britpick.me</h1><p></p>" + 
 		"<p class='lead'>Quick, easy, and customizable Britpicking</p><p>for American (and other " + 
 		"non-Brit) fic authors</p></div>");
-	$('#headline').append("<div id='form'><form id='target'><legend>Paste your fic in the box:</legend>" + 
+	$('#main').append("<div id='form'><form id='target'><legend>Paste your fic in the box:</legend>" + 
 		"<textarea id='fic' class='input-block-level' rows='6' placeholder='Your un-Britpick-ed text'" + 
 		" autofocus required></textarea><br/><button type='submit' class='btn btn-primary btn-large'>" + 
 		"Britpick it!</button></form></div>");
