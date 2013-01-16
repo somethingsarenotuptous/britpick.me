@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Britpick.me: FAQ</title>
+	<link href="img/favicon.ico" rel="shortcut icon" />
+	<!-- Bootstrap -->
+	<link href="bootstrap.css" type="text/css" rel="stylesheet" media="screen" />
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+  <script src="bootstrap.js"></script>
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+
+      /* Navbar logo left margin (JEB) */
+      .navbar .brand {
+        margin-left: 10px;
+      }
+
+      /* Custom container */
+      .container-narrow {
+        margin: 0 auto;
+        max-width: 700px;
+      }
+      .container-narrow > hr {
+        margin: 30px 0;
+      }
+
+      /* Main marketing message and sign up button */
+      .jumbotron {
+        margin: 20px 0;
+        text-align: center;
+      }
+      .jumbotron h1 {
+        font-size: 72px;
+        line-height: 1;
+      }
+      .hero-unit {
+        padding: 20px;
+      }
+    </style>
+</head>
+<body>
+    <div id="main" class="container-narrow">
+    <div id="splash" class="jumbotron hero-unit">
+      <h1>Britpick.me</h1>
+      <p></p>
+      <p class="lead">Frequently Asked Questions</p>
+    </div>
+    <div id="faq" class="container-narrow">
+      <p class="lead text-success">How does britpick.me work?</p>
+      <p>Britpick.me searches for common Americanisms (e.g., <em>apartment</em>) and suggests a British equivalent. The tool searches for whole words only. It does search for the obvious variants of words (e.g., <em>apartment</em> and plural <em>apartments</em>, for verbs like <em>curse</em> it will search for <em>curse</em>, <em>curses</em>, <em>cursed</em>, and <em>cursing</em>), but these variants are hard-coded, not generated, so sometimes I may have missed one.
+      </p>
+      <br/>
+      <p class="lead text-success">What do you mean, customizable?</p>
+      <p>The database behind my search script is just a simple .csv spreadsheet. Eventually I plan to add the capability to upload your own .csv spreadsheet (in the format I specify) so that you can customize your britpick.me experience.</p>
+      <br/>
+      <p class="lead text-success">What other features are you planning to add?</p>
+      <p>
+        <ul>
+          <li><p>The ability to exclude entire categories of words to search for. For example, some Americanisms such as calling a year in school a <em>grade</em> are related only to <em>education</em> as a category, and if your fic doesn't deal with the education system at all, it might be annoying (and/or confusing) to see other uses of the word <em>grade</em> in your fic picked out by the tool.</p></li>
+          <li><p>The ability to accept or reject the tool's suggestions so that you end up with text that you can copy and paste back into the document you're working from. Don't hold your breath on this one, though&#8212;it's a sizable task.</p></li>
+        </ul>
+      </p>
+      <br/>
+      <p class="lead text-success">Are you British? Will you Britpick for me?</p>
+      <p>Nope, I'm not. (And therefore: no, I won't/can't.) I compiled my spreadsheet of American and British equivalents from (mainly) these two sources:
+        <ul>
+          <li><p><a target="_blank" href="http://archiveofourown.org/works/259535">Brit-pick Hints for Sherlock Authors by red_adam</a></p></li>
+          <li><p><a target="_blank" href="http://needlesslydefiantwithtea.tumblr.com/post/37663342231/britpicking-master-post">Britpicking Master Post by needlesslydefiantwithtea</a></p></li>
+        </ul>
+      </p>
+      <br/>
+      <p class="lead text-success">You're wrong about _____!</p>
+      <p>If you think there's an error in my American/British equivalents, I would suggest first checking the sources listed above to see if the potential mistake you caught is discussed there. If it isn't (or if you still disagree), submit a bug report at <a href="https://github.com/UtresInflati/britpick.me/issues" target="_blank">the project's GitHub Issues page</a>.
+      </p>
+      <br/>
+      <p class="lead text-success">How can I report bugs or suggest a feature?</p>
+      <p>Please use <a href="https://github.com/UtresInflati/britpick.me/issues" target="_blank">the project's GitHub Issues page</a> to report bugs or suggest features. If you're reporting a bug, please let me know what browser (Chrome, Firefox, Safari, etc.) and operating system (Windows, Mac, Linux) you're using. I use a Mac and test on Chrome and Firefox, but I haven't done more extensive testing than that.</p>
+      <p><strong>If you have an idea for a feature, please suggest it!</strong> I want this tool to serve the community as best it can, but I can't do that if my fellow fic authors don't tell me what they want.</p>
+      <br/>
+      <p class="lead text-success">I want to contribute code!</p>
+      <p>If you want to contribute code, you absolutely can. Just use the standard GitHub procedures for this: fork the project, add your code, and submit a pull request. I reserve the right to decline pull requests, of course, but I'm open to collaboration.</p>
+      <p>As the GitHub <a href="https://github.com/UtresInflati/britpick.me/blob/master/README.md">README</a> for the project explains, right now britpick.me uses <em>only</em> front-end web technologies (HTML, CSS, JavaScript). There are two reasons for this:
+        <ul>
+          <li>
+            <p>I can host a front-end only webapp <em>for free</em> on GitHub using the <a href="http://pages.github.com/">GitHub Project Pages</a> feature. I am (relatively) poor. Therefore, this is pretty important.</p>
+          </li>
+          <li>
+            <p>I don't have much experience with back-end/server-side technologies.
+          </li>
+        </ul>
+        The moral: if you're a back-end developer who has some spare energy and spare cash to put into this project, then (and only then) would I be willing to expand this app into more of a full-fledged webapp with a much fuller feature set.</p>
+        <br/>
+        <p class="lead text-success">How can I contact you?</p>
+        <p>If you're not trying to submit a bug report or feature request, you can contact me at <a href="mailto:utres.inflati.ambulamus@gmail.com">this address</a>. If you are trying to report a bug or request a new feature, please use <a href="https://github.com/UtresInflati/britpick.me/issues" target="_blank">the project's GitHub Issues page</a>.</p>
+    </div>
+</body>
+</html>
