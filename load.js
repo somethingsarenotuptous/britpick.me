@@ -621,5 +621,12 @@ var defaults = [
 		"AmericanForms": "biscuit, biscuits",
 		"British": "scone",
 		"Explanation": "If you&apos;re using the word <em>biscuit</em>, make sure you&apos;re talking about something similar to an American <em>cookie</em>, not a bread-y baked thing like a <em>scone</em>."
+	},
+	{
+		"Category": "general",
+		"American": "band-aid",
+		"AmericanForms": "bandaid, bandaids, band-aid, band-aids",
+		"British": "plaster",
+		"Explanation": "You put a <em>plaster</em> on a cut or other small injury, not a <em>band-aid</em>."
 	}
 ];
