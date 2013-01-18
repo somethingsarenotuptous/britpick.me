@@ -117,6 +117,8 @@ var recreateIndex = function() {
 		"<p class='lead'>Quick, easy, and customizable Britpicking</p><p>for American (and other " + 
 		"non-Brit) fic authors</p></div>");
 	$('#main').append("<div id='form'><form id='target'><legend>Paste your fic in the box:</legend>" + 
+		"<span class='help-block'>You can paste plain text, rich text, or HTML in the box. For more on " +
+		"how the Britpicker works, see the <a href='faq.html' target='_blank'>FAQ</a>.</span>" +
 		"<textarea id='fic' class='input-block-level' rows='6' placeholder='Your un-Britpick-ed text'" + 
 		" autofocus required></textarea><br/><button type='submit' class='btn btn-primary btn-large'>" + 
 		"Britpick it!</button></form></div>");
@@ -129,13 +131,18 @@ var recreateIndex = function() {
 var createCheck = function(submitted, noSuggestions) {
 	if (noSuggestions) {
 		$('#britpicked').prepend("<h1>Your Britpick-ed fic:</h1><p class='lead'>Britpick.me caught no " +
-			"errant Americanisms. Congratulations!</p>");
+			"errant Americanisms. Congratulations!</p><div id='buttons' class='container-narrow btn-toolbar' " +
+			"style='float: right'><button id='embiggen' class='btn btn-primary' onClick=\"embiggen('result');\">" +
+			"Embiggen Text</button></div><br/><br/>");
+
 		$('#result').html(submitted);
 	}
 	else {
 		$('#britpicked').prepend("<h1>Your Britpick-ed fic:</h1><p class='lead'>Hover over suggested changes " +
 			"(in <del class='tbd text-error'>red</del> <button class='btn btn-success'>green</button>) to learn " +
-			"about why the change is recommended.</p>");
+			"about why the change is recommended.</p><div id='buttons' class='container-narrow btn-toolbar' " +
+			"style='float: right'><button id='embiggen' class='btn btn-primary' onClick=\"embiggen('result');\">" +
+			"Embiggen Text</button></div><br/><br/>");
 		$('#result').html(submitted);
 	}
 }
