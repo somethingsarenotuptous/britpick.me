@@ -40,6 +40,8 @@
         padding: 20px;
       }
     </style>
+    <!-- My JavaScript -->
+    <script type="text/javascript" src="embiggen.js"></script>
     <!-- Google Analytics -->
     <script type="text/javascript">
 
@@ -62,6 +64,10 @@
       <p></p>
       <p class="lead">Frequently Asked Questions</p>
     </div>
+    <div id="buttons" class="container-narrow btn-toolbar" style="float: right">
+      <button id="embiggen" class="btn btn-primary" onClick="embiggen('faq');">Embiggen Text</button>
+    </div>
+    <br/>
     <div id="faq" class="container-narrow">
       <p class="lead text-success">How does britpick.me work?</p>
       <p>Britpick.me searches for common Americanisms (e.g., <em>apartment</em>) and suggests a British equivalent. The tool searches for whole words only. It does search for the obvious variants of words (e.g., <em>apartment</em> and plural <em>apartments</em>, for verbs like <em>curse</em> it will search for <em>curse</em>, <em>curses</em>, <em>cursed</em>, and <em>cursing</em>), but these variants are hard-coded, not generated, so sometimes I may have missed one.
