@@ -119,6 +119,7 @@ var ignore = function(text, word) {
 	for(i = 0; i < toExclude.length; i++) {
 		$('#excluded_words').append("<li class='disabled'><a href=''>" + toExclude[i] + "</a></li>");
 	};
+	$("html, body").animate({ scrollTop: 0 }, "slow");
 	$('#fic').val('');
 	return false;
 }
