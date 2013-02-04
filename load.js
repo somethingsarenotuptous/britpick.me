@@ -360,8 +360,8 @@ var defaults = [
 		"Category": "appearance",
 		"American": "shorts, underwear",
 		"AmericanForms": "shorts, underwear",
-		"British": "boxers, Y-fronts, (under)pants",
-		"Explanation": "<em>Underwear</em> is only a collective noun that refers to all underclothes generally, never referring to one pair."
+		"British": "boxers, Y-fronts, etc.",
+		"Explanation": "<em>Underwear</em> is only a collective noun that refers to all underclothes generally, never referring to one pair. Use boxers, Y-fronts, or (under)pants instead."
 	},
 	{
 		"Category": "appearance",
