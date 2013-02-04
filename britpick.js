@@ -1,25 +1,40 @@
 $(document).ready(function() {
 	$('#target').on("submit",function() {
 		text = $('#fic').val();
-		britpick(text);
-		addPopoverData();
-		$('.britpicked').popover({html: true, trigger: "hover"});
+		britpick(text, toExclude);
+		addPopoverData(text);
+		$('.britpicked').popover({html: true, trigger: "click"});
 		$('#fic').val('');
 		return false;
 	});
 });
 
-var britpick = function(text) {
+var toExclude = [];
+
+var britpick = function(text, toExclude) {
 	var noSuggestions = true;
 	var caught = new Array();
 	var toBritpick = new Array();
 	var suggested = new Array();
 	var explanations = new Array();
+	var excluded;
 	for(i = 0; i < defaults.length; i++) {
-		caught[i] = defaults[i].American;
-		toBritpick[i] = defaults[i].AmericanForms;
-		suggested[i] = defaults[i].British;
-		explanations[i] = defaults[i].Explanation;
+		excluded = false;
+		for(j = 0; j < toExclude.length; j++) {
+			if(defaults[i].American === toExclude[j]) {
+				console.log("Excluding '" + toExclude[j] + "'");
+				excluded = true;
+			}
+		}
+		if(!(excluded)) {
+			caught[i] = defaults[i].American;
+			toBritpick[i] = defaults[i].AmericanForms;
+			suggested[i] = defaults[i].British;
+			explanations[i] = defaults[i].Explanation;
+		}
+		else {
+			toBritpick[i] = "αω";
+		}
 	};
 	for(i = 0; i < toBritpick.length; i++) {
 		if (toBritpick[i].search(',') != -1) {
@@ -49,14 +64,19 @@ var britpick = function(text) {
 	createCheck(submitted, noSuggestions);
 }
 
-var addPopoverData = function () {
+var addPopoverData = function (text) {
+	// without next line, get 'unterminated string literal' error
+	text = text.replace(/\n/g, "<br/>");
+	text = text.replace(/\r/g, "<br/>");
 	$('.britpicked').each(function(i) {
 		for(i = 0; i < defaults.length; i++) {
 			item = defaults[i]
 			word = defaults[i].British;
 			if($(this).text() === word) {
 				$(this).attr("title", item.American + " vs. " + item.British);
-				$(this).attr("data-content", item.Explanation);
+				$(this).attr("data-content", item.Explanation + "<br/><br/><button class='btn btn-primary' " +
+					"onClick=\"ignore('" + text + "', '" + item.American + "');\">Ignore <em>" + item.American + 
+					"</em></a>");
 			}
 		};
 	});
@@ -88,9 +108,28 @@ var suggest = function (text, wrong, re, right, explained) {
 	
 }
 
+var ignore = function(text, word) {
+	toExclude.push(word);
+	britpick(text, toExclude);
+	addPopoverData(text);
+	$('.britpicked').popover({html: true, trigger: "click"});
+	$('#excluding').remove();
+	$("<div id='excluding'><ul class='nav nav-pills well' " +
+		"id='excluded_words'><li class='active pull-left'><a href='#'>Excluding:</a></li></ul></div>").insertBefore('#result');
+	for(i = 0; i < toExclude.length; i++) {
+		$('#excluded_words').append("<li class='disabled'><a href=''>" + toExclude[i] + "</a></li>");
+	};
+	$('#fic').val('');
+	return false;
+}
+
 var createBlankCheck = function(form) {
 	$('#splash').remove();
 	$('#form').remove();
+	$('#britpicked_head').remove();
+	$('#britpicked_lead').remove();
+	$('#buttons').remove();
+	$('.britpick_breaks').remove();
 	$('li').removeClass('active');
 	$('#check').addClass('active');
 	$('#altLead').remove();
@@ -130,19 +169,21 @@ var recreateIndex = function() {
 
 var createCheck = function(submitted, noSuggestions) {
 	if (noSuggestions) {
-		$('#britpicked').prepend("<h1>Your Britpick-ed fic:</h1><p class='lead'>Britpick.me caught no " +
-			"errant Americanisms. Congratulations!</p><div id='buttons' class='container-narrow btn-toolbar' " +
-			"style='float: right'><button id='embiggen' class='btn btn-primary' onClick=\"embiggen('result');\">" +
-			"Embiggen Text</button></div><br/><br/>");
+		$('#britpicked').prepend("<h1 id='britpicked_head'>Your Britpick-ed fic:</h1><p id='britpicked_lead' " +
+			"class='lead'>Britpick.me caught no errant Americanisms. Congratulations!</p><div id='buttons' " +
+			"class='container-narrow btn-toolbar' style='float: right'><button id='embiggen' class='btn btn-primary' " +
+			"onClick=\"embiggen('result');\">Embiggen Text</button></div><br class='britpick_breaks' /><br " +
+			"class='britpick_breaks' />");
 
 		$('#result').html(submitted);
 	}
 	else {
-		$('#britpicked').prepend("<h1>Your Britpick-ed fic:</h1><p class='lead'>Hover over suggested changes " +
-			"(in <del class='tbd text-error'>red</del> <button class='btn btn-success'>green</button>) to learn " +
-			"about why the change is recommended.</p><div id='buttons' class='container-narrow btn-toolbar' " +
-			"style='float: right'><button id='embiggen' class='btn btn-primary' onClick=\"embiggen('result');\">" +
-			"Embiggen Text</button></div><br/><br/>");
+		$('#britpicked').prepend("<h1 id='britpicked_head'>Your Britpick-ed fic:</h1><p id='britpicked_lead' " +
+			"class='lead'>Click on suggested changes (in <del class='tbd text-error'>red</del> <button " +
+			"class='btn btn-success'>green</button>) to learn about why the change is recommended.</p><div " + 
+			"id='buttons' class='container-narrow btn-toolbar' style='float: right'><button id='embiggen' " +
+			"class='btn btn-primary' onClick=\"embiggen('result');\">Embiggen Text</button></div><br " +
+			"class='britpick_breaks' /><br class='britpick_breaks' />");
 		$('#result').html(submitted);
 	}
 }
