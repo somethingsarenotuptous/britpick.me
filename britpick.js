@@ -119,6 +119,7 @@ var ignore = function(text, word) {
 	for(i = 0; i < toExclude.length; i++) {
 		$('#excluded_words').append("<li class='disabled'><a href=''>" + toExclude[i] + "</a></li>");
 	};
+	$("html, body").animate({ scrollTop: 0 }, "slow");
 	$('#fic').val('');
 	return false;
 }
@@ -128,6 +129,7 @@ var createBlankCheck = function(form) {
 	$('#form').remove();
 	$('#britpicked_head').remove();
 	$('#britpicked_lead').remove();
+	$('#nb').remove();
 	$('#buttons').remove();
 	$('.britpick_breaks').remove();
 	$('li').removeClass('active');
@@ -183,7 +185,14 @@ var createCheck = function(submitted, noSuggestions) {
 			"class='btn btn-success'>green</button>) to learn about why the change is recommended.</p><div " + 
 			"id='buttons' class='container-narrow btn-toolbar' style='float: right'><button id='embiggen' " +
 			"class='btn btn-primary' onClick=\"embiggen('result');\">Embiggen Text</button></div><br " +
-			"class='britpick_breaks' /><br class='britpick_breaks' />");
+			"class='britpick_breaks' /><br class='britpick_breaks' /><div id='nb' class='alert'><button " +
+			"type='button' class='close' data-dismiss='alert'>&times;</button><strong>NB:</strong> Many of " +
+	        "the suggestions you'll receive from this tool are <em>highly context-dependent</em>. Be sure to read the " +
+	        "explanations (click on the green buttons to see them) if you're confused or if the suggestion seems silly " +
+	        "- it might be! You can also choose to ignore a particular item by clicking the blue 'Ignore' button below " +
+	        "the explanation.<br/><br/>This tool is intended as a first-pass Britpicker; it can't handle anything more " +
+	        "than the most obvious substitions, but for me, at least, it's useful to find those pesky places where I " +
+	        "write 'bathroom' instead of 'toilet/loo' or 'apartment' instead of 'flat' without ever noticing.</div>");
 		$('#result').html(submitted);
 	}
 }
