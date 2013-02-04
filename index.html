@@ -41,6 +41,11 @@
       .hero-unit {
         padding: 20px;
       }
+
+      /* Fix for hidden popovers */
+      .popover {
+        z-index: 1055;
+      }
     </style>
   <!-- My JavaScript -->
   <script type="text/javascript" src="britpick.js"></script>
@@ -101,7 +106,9 @@
         <span class="help-block">You can paste plain text, rich text, or HTML in the box. For more on how the Britpicker works, see the <a href="faq.html">FAQ</a>.</span>
         <textarea id="fic" class="input-block-level" rows="6" placeholder="Your un-Britpick-ed text" autofocus required></textarea>
         <br/>
-        <button type="submit" class="btn btn-primary btn-large">Britpick it!</button>
+        <button type="submit" class="btn btn-primary btn-large">
+          <a href="#check" style="color:white;">Britpick it!</a>
+        </button>
       </form>
     </div>
     <div id="britpicked" class="container-narrow">

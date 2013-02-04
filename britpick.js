@@ -66,7 +66,8 @@ var britpick = function(text, toExclude) {
 
 var addPopoverData = function (text) {
 	// without next line, get 'unterminated string literal' error
-	text = text.replace("\n\n", "<br/><br/>");
+	text = text.replace(/\n/g, "<br/>");
+	text = text.replace(/\r/g, "<br/>");
 	$('.britpicked').each(function(i) {
 		for(i = 0; i < defaults.length; i++) {
 			item = defaults[i]
@@ -112,6 +113,12 @@ var ignore = function(text, word) {
 	britpick(text, toExclude);
 	addPopoverData(text);
 	$('.britpicked').popover({html: true, trigger: "click"});
+	$('#excluding').remove();
+	$("<div id='excluding'><ul class='nav nav-pills well' " +
+		"id='excluded_words'><li class='active pull-left'><a href='#'>Excluding:</a></li></ul></div>").insertBefore('#result');
+	for(i = 0; i < toExclude.length; i++) {
+		$('#excluded_words').append("<li class='disabled'><a href=''>" + toExclude[i] + "</a></li>");
+	};
 	$('#fic').val('');
 	return false;
 }
