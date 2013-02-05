@@ -23,6 +23,7 @@ var britpick = function(text, toExclude) {
 		for(j = 0; j < toExclude.length; j++) {
 			if(defaults[i].American === toExclude[j]) {
 				console.log("Excluding '" + toExclude[j] + "'");
+				console.log($('p').attr('line-height'));
 				excluded = true;
 			}
 		}
@@ -188,8 +189,8 @@ var createCheck = function(submitted, noSuggestions) {
 			"class='britpick_breaks' /><br class='britpick_breaks' /><div id='nb' class='alert'><button " +
 			"type='button' class='close' data-dismiss='alert'>&times;</button><strong>NB:</strong> Many of " +
 	        "the suggestions you'll receive from this tool are <em>highly context-dependent</em>. Be sure to read the " +
-	        "explanations (click on the green buttons to see them) if you're confused or if the suggestion seems silly " +
-	        "- it might be! You can also choose to ignore a particular item by clicking the blue 'Ignore' button below " +
+	        "explanations (click on the green buttons to see them) if you're confused or if the suggestion seems silly" +
+	        "&mdash;it might be! You can also choose to ignore a particular item by clicking the blue 'Ignore' button below " +
 	        "the explanation.<br/><br/>This tool is intended as a first-pass Britpicker; it can't handle anything more " +
 	        "than the most obvious substitions, but for me, at least, it's useful to find those pesky places where I " +
 	        "write 'bathroom' instead of 'toilet/loo' or 'apartment' instead of 'flat' without ever noticing.</div>");
