@@ -39,6 +39,10 @@
       .hero-unit {
         padding: 20px;
       }
+      p {
+        font-size: 16px;
+        line-height: 26px;
+      }
     </style>
     <!-- My JavaScript -->
     <script type="text/javascript" src="embiggen.js"></script>
@@ -72,10 +76,6 @@
       <p></p>
       <p class="lead">Frequently Asked Questions</p>
     </div>
-    <div id="buttons" class="container-narrow btn-toolbar" style="float: right">
-      <button id="embiggen" class="btn btn-primary" onClick="embiggen('faq');">Embiggen Text</button>
-    </div>
-    <br/>
     <div id="faq" class="container-narrow">
       <p class="lead text-success">How does britpick.me work?</p>
       <p>Britpick.me searches for common Americanisms (e.g., <em>apartment</em>) and suggests a British equivalent. The tool searches for whole words only. It does search for the obvious variants of words (e.g., <em>apartment</em> and plural <em>apartments</em>, for verbs like <em>curse</em> it will search for <em>curse</em>, <em>curses</em>, <em>cursed</em>, and <em>cursing</em>), but these variants are hard-coded, not generated, so sometimes I may have missed one.
@@ -84,8 +84,14 @@
       <p class="lead text-success">How much fic can I paste in the box?</p>
       <p>The short answer to this is: I don't know. I've personally pasted in a few thousand words at a time and not run into any problems. There probably is a limit, however, and it's probably a limit built into the HTML5 specifications for form elements. It's on my to-do list to find a definite answer.</p>
       <br/>
+      <p class="lead text-success">What does the <button class='btn btn-primary btn-small'>Ignore <em>word</em></button> do in the explanations for the suggested changes?</p>
+      <p>If you click the <button class='btn btn-primary btn-small'>Ignore <em>word</em></button> in the explanation for a suggested change, the page will reload after rechecking your fic, excluding the word you chose to ignore (and its variants). It will ignore <em>all instances</em> of the word and its variants, so use this with caution. A box at the top of the page will also display the words you're currently excluding. At present, you have to go back to the Start page to start over, excluding nothing.</p>
+      <br/>
       <p class="lead text-success">What do you mean, customizable?</p>
       <p>The database behind my search script is just a simple .csv spreadsheet. Eventually I plan to add the capability to upload your own .csv spreadsheet (in the format I specify) so that you can customize your britpick.me experience.</p>
+      <br/>
+      <p class="lead text-success">Are there any known bugs?</p>
+      <p>Oh, <em>probably</em>. You can look at <a href="https://github.com/UtresInflati/britpick.me/issues" target="_blank">the project's GitHub Issues page</a> to see what they are.</p>
       <br/>
       <p class="lead text-success">What other features are you planning to add?</p>
       <p>
@@ -104,11 +110,11 @@
       </p>
       <br/>
       <p class="lead text-success">You're wrong about _____!</p>
-      <p>If you think there's an error in my American/British equivalents, I would suggest first checking the sources listed above to see if the potential mistake you caught is discussed there. If it isn't (or if you still disagree), submit a bug report at <a href="https://github.com/UtresInflati/britpick.me/issues" target="_blank">the project's GitHub Issues page</a>.
+      <p>If you think there's an error in my American/British equivalents, I would suggest first checking the sources listed above to see if the potential mistake you caught is discussed there. If it isn't (or if you still disagree), then you can either submit a bug report at <a href="https://github.com/UtresInflati/britpick.me/issues" target="_blank">the project's GitHub Issues page</a> (requires a GitHub account, which probably doesn't apply to many of you), or you can <a href="mailto:utres.inflati.ambulamus@gmail.com">e-mail me</a> about it.
       </p>
       <br/>
       <p class="lead text-success">How can I report bugs or suggest a feature?</p>
-      <p>Please use <a href="https://github.com/UtresInflati/britpick.me/issues" target="_blank">the project's GitHub Issues page</a> to report bugs or suggest features. If you're reporting a bug, please let me know what browser (Chrome, Firefox, Safari, etc.) and operating system (Windows, Mac, Linux) you're using. I use a Mac and test on Chrome and Firefox, but I haven't done more extensive testing than that.</p>
+      <p>If you have a GitHub account, you can use <a href="https://github.com/UtresInflati/britpick.me/issues" target="_blank">the project's GitHub Issues page</a> to report bugs or suggest features. Otherwise, just shoot me <a href="mailto:utres.inflati.ambulamus@gmail.com">an e-mail</a>. If you're reporting a bug, please let me know what browser (Chrome, Firefox, Safari, etc.) and operating system (Windows, Mac, Linux) you're using. I use a Mac and test on Chrome and Firefox, but I haven't done more extensive testing than that.</p>
       <p><strong>If you have an idea for a feature, please suggest it!</strong> I want this tool to serve the community as best it can, but I can't do that if my fellow fic authors don't tell me what they want.</p>
       <br/>
       <p class="lead text-success">I want to contribute code!</p>
@@ -125,7 +131,7 @@
         The moral: if you're a back-end developer who has some spare energy and spare cash to put into this project, then (and only then) would I be willing to expand this app into more of a full-fledged webapp with a much fuller feature set.</p>
         <br/>
         <p class="lead text-success">How can I contact you?</p>
-        <p>If you're not trying to submit a bug report or feature request, you can contact me at <a href="mailto:utres.inflati.ambulamus@gmail.com">this address</a>. If you are trying to report a bug or request a new feature, please use <a href="https://github.com/UtresInflati/britpick.me/issues" target="_blank">the project's GitHub Issues page</a>.</p>
+        <p>You can contact me at <a href="mailto:utres.inflati.ambulamus@gmail.com">this address</a>.</p>
     </div>
 </body>
 </html>
