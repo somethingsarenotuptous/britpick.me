@@ -628,5 +628,12 @@ var defaults = [
 		"AmericanForms": "bandaid, bandaids, band-aid, band-aids",
 		"British": "plaster",
 		"Explanation": "You put a <em>plaster</em> on a cut or other small injury, not a <em>band-aid</em>."
+	},
+	{
+		"Category": "general",
+		"American": "flashlight",
+		"AmericanForms": "flashlight, flash light, flashlights, flash lights",
+		"British": "torch",
+		"Explanation": "A handheld object that provides illumination is a <em>torch</em>, not a <em>flashlight</em>."
 	}
-];
+]
