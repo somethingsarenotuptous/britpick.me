@@ -192,7 +192,7 @@ var createCheck = function(submitted, noSuggestions) {
 	        "explanations (click on the green buttons to see them) if you're confused or if the suggestion seems silly" +
 	        "&mdash;it might be! You can also choose to ignore a particular item by clicking the blue 'Ignore' button below " +
 	        "the explanation.<br/><br/>This tool is intended as a first-pass Britpicker; it can't handle anything more " +
-	        "than the most obvious substitions, but for me, at least, it's useful to find those pesky places where I " +
+	        "than the most obvious substitutions, but for me, at least, it's useful to find those pesky places where I " +
 	        "write 'bathroom' instead of 'toilet/loo' or 'apartment' instead of 'flat' without ever noticing.</div>");
 		$('#result').html(submitted);
 	}
