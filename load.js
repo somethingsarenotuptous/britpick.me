@@ -635,5 +635,12 @@ var defaults = [
 		"AmericanForms": "flashlight, flash light, flashlights, flash lights",
 		"British": "torch",
 		"Explanation": "A handheld object that provides illumination is a <em>torch</em>, not a <em>flashlight</em>."
+	},
+	{
+		"Category": "general",
+		"American": "hickey",
+		"AmericanForms": "hickey, hickeys",
+		"British": "love bite",
+		"Explanation": "A bruise resulting from kissing or sucking on skin is never a <em>hickey</em> in British English, only a <em>love bite</em>."
 	}
-]
+];
