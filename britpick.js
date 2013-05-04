@@ -2,7 +2,7 @@ $(document).ready(function() {
 	$('#target').on("submit",function() {
 		text = $('#fic').val();
 		britpick(text, toExclude);
-		addPopoverData(text);
+		addPopoverData(scrub(text));
 		$('.britpicked').popover({html: true, trigger: "click"});
 		$('#fic').val('');
 		return false;
@@ -10,6 +10,10 @@ $(document).ready(function() {
 });
 
 var toExclude = [];
+
+var scrub = function(text) {
+	return String(text).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
 
 var britpick = function(text, toExclude) {
 	var noSuggestions = true;
