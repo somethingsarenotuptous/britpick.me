@@ -6,9 +6,9 @@
 	<title>Britpick.me</title>
 	<link href="img/favicon.ico" rel="shortcut icon" />
 	<!-- Bootstrap -->
-	<link href="bootstrap.css" type="text/css" rel="stylesheet" media="screen" />
+	<link href="bootstrap.min.css" type="text/css" rel="stylesheet" media="screen" />
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
-  <script src="bootstrap.js"></script>
+  <script src="bootstrap.min.js"></script>
     <style type="text/css">
       body {
         padding-top: 60px;
@@ -52,19 +52,19 @@
   <script type="text/javascript" src="load.js"></script>
   <script type="text/javascript" src="embiggen.js"></script>
   <!-- Google Analytics -->
-    <script type="text/javascript">
+  <script type="text/javascript">
 
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-37683895-1']);
-      _gaq.push(['_trackPageview']);
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-37683895-1']);
+    _gaq.push(['_trackPageview']);
 
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
 
-    </script>
+  </script>
 </head>
 <body>
   <div class="container">
@@ -104,7 +104,7 @@
       <form id="target">
         <legend>Paste your fic in the box:</legend>
         <span class="help-block">You can paste plain text, rich text, or HTML in the box. For more on how the Britpicker works, see the <a href="faq.html">FAQ</a>.</span>
-        <div class="alert">
+        <div class="alert" id="nb">
           <button type="button" class="close" data-dismiss="alert">&times;</button>
           <span id="NBmore"><strong>NB:</strong> click for more info/warnings.</span>
           <div id="NBtext" style="display:none;">

@@ -20,7 +20,7 @@ var notaBene = function() {
 }
 
 var scrub = function(text) {
-	return String(text).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+	return String(text).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&apos;');
 }
 
 var britpick = function(text, toExclude) {
@@ -35,7 +35,6 @@ var britpick = function(text, toExclude) {
 		for(j = 0; j < toExclude.length; j++) {
 			if(defaults[i].American === toExclude[j]) {
 				console.log("Excluding '" + toExclude[j] + "'");
-				console.log($('p').attr('line-height'));
 				excluded = true;
 			}
 		}
@@ -88,7 +87,7 @@ var addPopoverData = function (text) {
 			if($(this).text() === word) {
 				$(this).attr("title", item.American + " vs. " + item.British);
 				$(this).attr("data-content", item.Explanation + "<br/><br/><button class='btn btn-primary' " +
-					"onClick=\"ignore('" + text + "', '" + item.American + "');\">Ignore <em>" + item.American + 
+					"onClick=\"ignore('" + scrub(text) + "', '" + item.American + "');\">Ignore <em>" + item.American + 
 					"</em></a>");
 			}
 		};
@@ -198,7 +197,7 @@ var createCheck = function(submitted, noSuggestions) {
 			"class='btn btn-success'>green</button>) to learn about why the change is recommended.</p><div " + 
 			"id='buttons' class='container-narrow btn-toolbar' style='float: right'><button id='embiggen' " +
 			"class='btn btn-primary' onClick=\"embiggen('result');\">Embiggen Text</button></div><br " +
-			"class='britpick_breaks' /><br class='britpick_breaks' /><div class='alert'><button type='button' " +
+			"class='britpick_breaks' /><br class='britpick_breaks' /><div class='alert' id='nb'><button type='button' " +
 			"class='close' data-dismiss='alert'>&times;</button><span id='NBmore'><strong>NB:</strong> click for " +
 			"more info/warnings.</span><div id='NBtext' style='display:none;'><br/><p>Many of the suggestions you'll " +
 			"receive from this tool are <em>highly context-dependent</em>. Be sure to read the explanations (click on " +
